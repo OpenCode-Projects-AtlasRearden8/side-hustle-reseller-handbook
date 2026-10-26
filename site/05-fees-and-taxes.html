@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fees and Taxes (Plain Round Numbers) — The Side-Hustle Reseller Handbook</title>
+<style>
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #2b2a28;
+  --muted: #6f6a62;
+  --accent: #2f6b4f;
+  --accent-soft: #e2efe7;
+  --line: #e0e6df;
+  --code-bg: #f1f2ee;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #1f1d1a;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #26312b;
+  color: #eef2ec;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #1d4a36; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Side-Hustle Reseller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-what-sells.html">What Sells</a></li><li><a class="" href="02-sourcing-calmly.html">Sourcing Calmly</a></li><li><a class="" href="03-photos-and-listings.html">Photos &amp; Listings</a></li><li><a class="" href="04-shipping-without-stress.html">Shipping</a></li><li><a class="active" href="05-fees-and-taxes.html">Fees &amp; Taxes</a></li><li><a class="" href="06-keeping-records.html">Keeping Records</a></li><li><a class="" href="07-scam-proofing.html">Scam-Proofing</a></li><li><a class="" href="08-quitting-politely.html">Quitting Politely</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="starter-checklist.html">Starter Checklist</a></li><li><a class="" href="fee-think-worksheet.html">Fee-Think Worksheet</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="fees-and-taxes-plain-round-numbers">Fees and Taxes (Plain Round Numbers)</h1>
+<p>This is the chapter people skip and then regret at two in the morning. Here's the friendly version, with numbers you can do in your head, and a clear flag every time a number is a rounded guess rather than gospel.</p>
+<h2 id="where-the-money-goes-on-one-sale">Where the money goes on one sale</h2>
+<p>Sold for $20.00 — here's the pipeline, in round numbers:</p>
+<table><thead><tr><th>Stage</th><th>Rounded number</th><th>What it is</th></tr></thead><tbody><tr><td>Buyer pays you</td><td>$20.00</td><td>Including any shipping they paid</td></tr><tr><td>Marketplace fee</td><td>− $2.60</td><td>eBay's final value fee — roughly <strong>13%</strong> plus a small per-order amount</td></tr><tr><td>Payment processing</td><td>often included</td><td>The "roughly 13%" above covers most of it on eBay; other platforms quote similar</td></tr><tr><td>Shipping label (if you paid)</td><td>− $4.50</td><td>What your scale-and-box routine chose</td></tr><tr><td>Your out-of-pocket item cost</td><td>− $1.00</td><td>Rarely worth arguing about at these levels</td></tr><tr><td><strong>Your money before tax</strong></td><td><strong>= about $11.90</strong></td><td>This is the number that matters</td></tr></tbody></table>
+<p>The big takeaway, in round numbers: <strong>the marketplace keeps about 13-15% of everything.</strong> When something sells for $30, mentally subtract 15 first, and then deal with the shape of what's left.</p>
+<h2 id="the-half-rule-a-quick-sanity-check">The Half Rule (a quick sanity check)</h2>
+<p>Here's the trick that keeps a part-timer from chasing bad numbers: for a typical <strong>book-or-small-item</strong> sale —</p>
+<blockquote><p><strong>You keep about half, minus your cost.</strong></p></blockquote>
+<p>Twenty dollars sold → about $10 in your hand before tax. Ten dollars sold → about $5. If someone at a yard sale asks "How much do these sell for?" you can answer in round numbers <em>before</em> opening a calculator:</p>
+<table><thead><tr><th>It listed around</th><th>You'd keep (before your cost)</th></tr></thead><tbody><tr><td>$10</td><td>about $5</td></tr><tr><td>$20</td><td>about $10</td></tr><tr><td>$50</td><td>about $25</td></tr><tr><td>$100</td><td>about $50 (slightly more, fees shrink percent-wise, but round is round)</td></tr></tbody></table>
+<p>The Half Rule is deliberately crude. When a decision is <em>worth</em> real math — bundles, whole stash, anything over about $40 — open the <a href="fee-think-worksheet.html">Fee-think worksheet</a>, where the arithmetic is one subtraction per line. For anything exact and high-volume, the companion <strong>Resale Lot Builder</strong> tool forecasts profit per lot with fee rates you set yourself.</p>
+<h2 id="amazon-in-one-paragraph">Amazon, in one paragraph</h2>
+<p>Amazon's fee math is famously stackier than eBay's: referral fees vary by category (a rounded rule: <strong>many categories are around 8-15%</strong>, books about 15%), and if you use their fulfillment service you'll also pay outbound fulfillment fees per unit (which vary by item size as well as weight). Third-party new-item rules and category gating also play a role. Round conclusion for a beginner: <strong>the same item often nets you noticeably less on Amazon than the Half Rule suggests</strong> — which is exactly why this book told you to start on eBay-adjacent categories and treat Amazon as a second language you add later. (Compare exact rates for one item across marketplaces any time with the companion <strong>Shipping-Cost Comparer</strong> for the shipping side of Amazon's math.)</p>
+<h2 id="sales-tax-in-plain-round-numbers-the-part-that-surprises-people">Sales tax, in plain round numbers (the part that surprises people)</h2>
+<p>Two <em>different</em> taxes are in play, and you should never confuse them:</p>
+<ol>
+<li>**Sales tax — the one <em>buyers</em> pay.** The round-number comfort of the year: eBay, Amazon, and similar large marketplaces **collect and remit sales tax for you** in most U.S. states, because states require them to. Buyers see tax added at checkout; it never lands in your balance; you do nothing. Caveat in plain terms: the <em>rule is yours to confirm</em> for your state, and "my own local in-person sale" (like... a yard sale) works differently. When in doubt, ask a tax professional a one-time, one-question version of the question.</li>
+<li>**Income tax — the one <em>you</em> pay.<strong> Marketplace </strong>fees and shipping you paid are business expenses**, not profit; the taxable number is:</li>
+</ol>
+<p>&gt; <strong>sale price − item cost − fees − shipping = profit</strong> ← the taxable &gt; word is <em>profit</em>, not <em>sale</em>.</p>
+<p>If you sold $300 worth and spent $120 getting the stuff and $90 in fees and shipping, your taxable profit is about $90, <em>not</em> $300. People who forget this over-pay. People who remember it sleep.</p>
+<h2 id="how-much-to-set-aside-the-envelope-method">How much to set aside (the envelope method)</h2>
+<p>Round-number guidance: <strong>if you expect to owe income tax in any form, keep about a quarter</strong> — call it <strong>25% of profit</strong> — untouched as a tax cushion.</p>
+<p>Concretely: profit in, envelope-add. When profit for the month is $50, spend what you like and about <strong>$12 goes into an envelope that says TAXES</strong>. If at tax time the envelope is bigger than the bill, the change is yours — a nice surprise, mattering for nothing but morale. If the envelope is short, it did its quiet, boring job of making the shortfall small.</p>
+<p>If reselling stays genuinely small (profitably hobby-level: a few hundred dollars of profit a year), the whole tax business usually fits on the regular tax form as a small line item. When it grows into a business — or if you start a genuine LLC or hire anyone — that's the moment a real accountant is worth their hourly rate. This book is education, not advice; the envelope is a <em>habit</em>, the accountant is the <em>expert</em>.</p>
+<p><strong>Estimated-tax quarter notes, briefly:</strong> U.S. tax law asks some side-income earners to file estimated tax payments quarterly, but the thresholds and mechanics are specific. Round-number version: until your sideline profit is meaningfully large (numbers like "a couple thousand dollars for the year" territory), most beginners simply land inside the safe-harbor range and owe it all at annual filing. As always when the number stops being small: professional, not blog post.</p>
+<h2 id="danger-at-the-top-the-one-fee-you-forget">Danger at the top: the one fee you forget</h2>
+<p>The fee nobody predicts is <strong>the fee on the shipping you charged.</strong> eBay (and similar platforms) charges the ~13% cut on the <em>total</em> the buyer paid, <strong>including shipping.</strong> So if you listed "$18 free shipping" and packed a box whose label costs $9, do the Half Rule on the whole $18 — that free shipping isn't free to you. Listings with calculated shipping typically pass the postage through, but <em>the fee still rides the shipping amount.</em> This is the reason the <a href="fee-think-worksheet.html">fee-think worksheet</a> has a line called "buyer paid for shipping (fee applies)" — it is the number beginners forget three times and remember forever after.</p>
+<h2 id="five-numbers-worth-writing-on-a-sticky-note-until-they-become-instinct">Five numbers worth writing on a sticky note (until they become instinct)</h2>
+<ol>
+<li><strong>13-15%</strong> — the marketplace cut, roughly (eBay's rounded average).</li>
+<li><strong>Half.</strong> — your rough keep, on small items, before cost, and *before tax*.</li>
+<li><strong>25% of profit</strong> — the tax-envelope rule.</li>
+<li><strong>Sale − cost − fees − shipping = profit</strong> — the only formula you must memorize.</li>
+<li><strong>Free shipping isn't free</strong> — the fee rides the whole buyer payment.</li>
+</ol>
+<p>If you'd like those turned into exercise-filling pencil work instead of a sticky note, the worksheet is next and it is two pages exactly.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="04-shipping-without-stress.html"><span class="dir">Previous</span>Shipping</a>
+      <a class="next" href="06-keeping-records.html"><span class="dir">Next</span>Keeping Records</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Side-Hustle Reseller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding Inventory (Sourcing Calmly) — The Side-Hustle Reseller Handbook</title>
+<style>
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #2b2a28;
+  --muted: #6f6a62;
+  --accent: #2f6b4f;
+  --accent-soft: #e2efe7;
+  --line: #e0e6df;
+  --code-bg: #f1f2ee;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #1f1d1a;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #26312b;
+  color: #eef2ec;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #1d4a36; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Side-Hustle Reseller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-what-sells.html">What Sells</a></li><li><a class="active" href="02-sourcing-calmly.html">Sourcing Calmly</a></li><li><a class="" href="03-photos-and-listings.html">Photos &amp; Listings</a></li><li><a class="" href="04-shipping-without-stress.html">Shipping</a></li><li><a class="" href="05-fees-and-taxes.html">Fees &amp; Taxes</a></li><li><a class="" href="06-keeping-records.html">Keeping Records</a></li><li><a class="" href="07-scam-proofing.html">Scam-Proofing</a></li><li><a class="" href="08-quitting-politely.html">Quitting Politely</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="starter-checklist.html">Starter Checklist</a></li><li><a class="" href="fee-think-worksheet.html">Fee-Think Worksheet</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="finding-inventory-sourcing-calmly">Finding Inventory (Sourcing Calmly)</h1>
+<p>Sourcing giddiness is the #1 beginner budget-killer. Nearly everyone's first month includes one purchase they think of as <em>"the twelve mugs incident."</em> This chapter exists so yours is small.</p>
+<h2 id="where-beginners-should-look-first-in-this-order">Where beginners should look first — in this order</h2>
+<ol>
+<li><strong>Your own home.</strong> Genuinely. Closets, garage, kitchen shelf of gadgets, the stack of books you swore you'd reread. Total cost: $0, and your <a href="06-keeping-records.html">records chapter</a> starts with an *item cost of zero* — which is legal, honest, and a lovely first practice.</li>
+<li><strong>Thrift stores.</strong> Fixed prices, no haggling, usually good return lines. Pattern: pick one store, same day each week, forty minutes, walk the two sections that match your <a href="01-what-sells.html">chosen categories</a>, leave.</li>
+<li><strong>Library book sales.</strong> Often $1–2 per book on the last day, sometimes "fill a bag for $5" days. Bring a bag that isn't embarrassing to fill.</li>
+<li><strong>Garage and yard sales.</strong> Cheapest, most time-consuming, requires small talk. Bring exact cash and a polite no. "Would you take three dollars?" is a complete sentence on both sides.</li>
+<li><strong>Clearance aisles and store closeouts.</strong> Perfectly legal and common. Keep receipts in a folder or an app's camera roll — they're your cost records later.</li>
+</ol>
+<p>Skip for now: estate sales (emotional pricing), storage auctions (a whole sub-hobby), and anything requiring a paid membership. You can add those later, after you know your own pace.</p>
+<h2 id="the-two-rules-that-keep-sourcing-calm">The two rules that keep sourcing calm</h2>
+<p><strong>The spending rule.</strong> Decide your sourcing budget <em>before</em> you walk in — say, $20 per trip — and pay cash if you can. When it's gone, the trip is done. A filled budget doesn't mean you'll fill a shelf; it means you've bought things you can explain at tax time without a headache. Anything you can't trace is inventory you can't price honestly.</p>
+<p><strong>The 15-minute rule.</strong> If you're standing in a store unsure about an item, give yourself 15 minutes of Hey-let-me-think, or set the item down and finish shopping, then decide at the register. Small items can be undervalued or overvalued; the <em>feeling</em> of "this is rare" is not research. Look up sold prices on your phone before the register (see <a href="03-photos-and-listings.html">photos and listings</a> for the full pricing method: sold listings, not asking prices).</p>
+<blockquote><p>A hard-earned truth: "I've never seen one before" is not the same as "this is valuable." The truth is usually "this is worthless <em>or</em> worth more than you realize, and only sold listings can tell you which."</p></blockquote>
+<h2 id="walking-away-a-required-skill">Walking away (a required skill)</h2>
+<p>You will pick up items that seem interesting and turn out to be unsellable-to-you for reasons you only learn by inspecting: missing pieces, sticky residue, hidden stains, a hairline crack, the wrong edition, an inventory tag buried deeper than your patience. Put it back, every time, with no speech act. The item you don't buy is a shipment you never have to think about again.</p>
+<p>Some categories have a <strong>walk-away reflex</strong> worth building early:</p>
+<ul>
+<li>Anything explaining it "just needs a small part" — <em>you're</em> the one who has to find that part.</li>
+<li>Anything you own zero expertise on but "goes for hundreds online" — see the <a href="07-scam-proofing.html">scam chapter</a> for the marketplace version of that sentence aimed at <em>you</em>, later.</li>
+<li>Anything whose box weighs more than the product. Shipping math punishes packaging that out-masses its content.</li>
+</ul>
+<h2 id="the-burnout-budget-spend-the-money-not-your-weekend">The burnout budget (spend the money, not your weekend)</h2>
+<p>Budget rules protect your money. A <strong>calendar rule</strong> protects your energy. Both exist in the same workbook:</p>
+<ul>
+<li><strong>One sourcing trip per week, four hours total,</strong> day of week fixed. If a week is busy, skip it — supply will wait for you.</li>
+<li><strong>A "we don't buy that here" list.</strong> For example: "at thrift stores, we buy books <em>and one other category</em>, never fragile glass, never anything over $15 without a phone check first."</li>
+</ul>
+<p>Keep your sourcing notes with your listing notes. A simple one-line pattern works: <em>"Sat 10/26: Goodwill East, $17.40 spent — 6 books, 1 tool.</em> <em>Found: nothing over $5, good day."</em> That sentence, saved 40 times a year, is half your bookkeeping already done (the <a href="06-keeping-records.html">records chapter</a> shows the whole cut-down version).</p>
+<h2 id="your-first-month-sourcing-scorecard">Your first-month sourcing scorecard</h2>
+<p>You are doing it right if:</p>
+<ul>
+<li>Your sourcing budget was spent on <strong>items you can list within a week</strong> — not "someday" research boxes.</li>
+<li>At least 20% of the money went to items sourced free from your own house.</li>
+<li>You put back at least three things you <em>wanted</em>.</li>
+<li>You never once bought something you couldn't name the <a href="01-what-sells.html">four-question test</a> answers for.</li>
+</ul>
+<p>And if you break a rule and buy the twelve mugs anyway? Welcome back — the <a href="fee-think-worksheet.html">fee-think worksheet</a> will tell you what they really cost, and the <a href="08-quitting-politely.html">quitting-politely chapter</a> can even turn leftover inventory into a tidy exit when the time comes.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="01-what-sells.html"><span class="dir">Previous</span>What Sells</a>
+      <a class="next" href="03-photos-and-listings.html"><span class="dir">Next</span>Photos &amp; Listings</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Side-Hustle Reseller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

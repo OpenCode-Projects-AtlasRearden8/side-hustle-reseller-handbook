@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Sells (and What to Sell First) — The Side-Hustle Reseller Handbook</title>
+<style>
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #2b2a28;
+  --muted: #6f6a62;
+  --accent: #2f6b4f;
+  --accent-soft: #e2efe7;
+  --line: #e0e6df;
+  --code-bg: #f1f2ee;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #1f1d1a;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #26312b;
+  color: #eef2ec;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #1d4a36; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Side-Hustle Reseller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="active" href="01-what-sells.html">What Sells</a></li><li><a class="" href="02-sourcing-calmly.html">Sourcing Calmly</a></li><li><a class="" href="03-photos-and-listings.html">Photos &amp; Listings</a></li><li><a class="" href="04-shipping-without-stress.html">Shipping</a></li><li><a class="" href="05-fees-and-taxes.html">Fees &amp; Taxes</a></li><li><a class="" href="06-keeping-records.html">Keeping Records</a></li><li><a class="" href="07-scam-proofing.html">Scam-Proofing</a></li><li><a class="" href="08-quitting-politely.html">Quitting Politely</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="starter-checklist.html">Starter Checklist</a></li><li><a class="" href="fee-think-worksheet.html">Fee-Think Worksheet</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="what-sells-and-what-to-sell-first">What Sells (and What to Sell First)</h1>
+<p>The fastest way to make reselling miserable is to start with the wrong items. The fastest way to make it fun is to start with items that are <strong>easy, boring, and forgiving</strong>. This chapter is a field guide to that difference.</p>
+<h2 id="the-four-question-test-for-any-item">The four-question test for any item</h2>
+<p>Before you buy or list something, ask:</p>
+<ol>
+<li><strong>Can I ship this easily?</strong> Small, light, not fragile, no batteries, no liquids, no hazmat. If it needs a friendship with bubble wrap to survive the postal service, it's a later purchase, not a first one.</li>
+<li>**Would I buy this without smelling it, inspecting it, or trusting the seller?** If honest selling requires expert eyes you don't have yet, skip it.</li>
+<li><strong>What would I expect to sell it for?</strong> If the answer is "about five dollars, eh, maybe?" that can still be fine — but know it <em>before</em> carrying it home.</li>
+<li><strong>What's the floor?</strong> The walk-away price: your cost plus a tiny margin. The <a href="fee-think-worksheet.html">fee-think worksheet</a> exists exactly for this question.</li>
+</ol>
+<h2 id="fourteen-categories-that-are-beginner-friendly">Fourteen categories that are beginner-friendly</h2>
+<table><thead><tr><th>Category</th><th>Why it's friendly</th></tr></thead><tbody><tr><td>Paperback fiction and cookbooks</td><td>Light, cheap to source, low stakes if it doesn't sell</td></tr><tr><td>Video games (discs and carts) and controllers</td><td>Buyers know exactly what they're looking at</td></tr><tr><td>Board games</td><td>Easy to photograph, flat-ish to ship</td></tr><tr><td>Small unpowered kitchen gadgets (cast iron, graters, cookie cutters)</td><td>No batteries, no generous warranties to worry about</td></tr><tr><td>Hand tools</td><td>Real resale market, easy condition menu</td></tr><tr><td>Office supplies in sealed packs</td><td>Easy margins, easy shipping</td></tr><tr><td>Sturdy plastic toys (no batteries)</td><td>Cheap, durable, forgiving if scratched</td></tr><tr><td>Everyday brand-name jeans</td><td>Ships folded flat, honest condition menu</td></tr><tr><td>Small electronics still in their original boxes</td><td>The original box <em>is</em> your packaging</td></tr><tr><td>Sports gear under 5 lb (yoga blocks, paddles)</td><td>Tough items, forgiving if scratched</td></tr><tr><td>Small car parts (under 3 lb)</td><td>Buyers actively search for them</td></tr><tr><td>Craft supplies in sealed packs</td><td>Sealed = easy to describe honestly</td></tr><tr><td>Seasonal decor in original retail boxes</td><td>The retail box does the describing for you</td></tr></tbody></table>
+<p>You do not need all fourteen. Pick <strong>two</strong> from the top of the list and do those for your first month.</p>
+<h2 id="what-to-skip-as-a-beginner">What to skip as a beginner</h2>
+<p>Bigger dollars come with bigger headaches. A partial list of trap categories to avoid <em>until you've shipped fifty boring boxes</em>:</p>
+<ul>
+<li><strong>Anything with a battery</strong> (power banks, scooters, laptops, e-liquid batteries, anything with a warned-about shipping label). Batteries have special shipping rules that change by carrier.</li>
+<li><strong>Anything new, sealed, with a warranty</strong> (Apple, Bose, factory-sealed phones, supplements). Amazon in particular is unforgiving about these; the paperwork alone isn't worth it yet.</li>
+<li><strong>High-value single items</strong> (anything over $150 at first). One $800 mistake can erase two months of calm and confidence.</li>
+<li><strong>Anything authenticate-able only by a human expert</strong> (designer handbags, signed memorabilia, sneakers at the hype tier unless you <em>are</em> a hype-tier human).</li>
+<li><strong>Anything you've been told "goes for a lot."</strong> The teller usually got the number from a <em>completed</em> sale of a different, mintier item. Completed listings — not your neighbor — set the price.</li>
+</ul>
+<blockquote><p>If you hear yourself saying "I found a bargain on a ten-of-things set, and I have no idea what they sell for — but it <em>needs</em> to be worth something," that's your clue to put it back.</p></blockquote>
+<h2 id="books-deserve-a-special-mention">Books deserve a special mention</h2>
+<p>Used books are the classic first category, and it's for good reasons:</p>
+<ul>
+<li>They often cost a dollar or less at thrift stores and library sales.</li>
+<li>They ship in a <strong>padded flat envelope</strong> — flat rate, flat math.</li>
+<li>Buyers don't care how they're boxed; they care that the description was honest (the <a href="03-photos-and-listings.html">photos chapter</a> covers flaw honesty in detail).</li>
+<li>Losing $1 of investment on a book that doesn't sell requires no therapy.</li>
+</ul>
+<p>The catch, and it's a real one: books are a <strong>low margin, high volume</strong> category. A dollar-store-size-thinking mindset can make each listing feel pointless. Twenty books listed Monday that sell over a Thursday-to-Saturday weekend still net about $200 — the math only works if you can list in bulk without overthinking each one. Aim for "ten minutes per listing" or less on books, and reserve deep descriptions for anything above $30 selling price.</p>
+<h2 id="your-first-week-assignment">Your first-week assignment</h2>
+<ol>
+<li>Choose <strong>two</strong> categories from the friendly table above. One should be something you don't entirely hate.</li>
+<li>Set a sourcing spending budget for week one. Round number: whatever you already own, $0 — or, if you're buying, <strong>twenty dollars max</strong>, tracked in the <a href="06-keeping-records.html">records chapter</a>.</li>
+<li>Find ten items that pass all four questions. Ten. No more.</li>
+<li>Read the <a href="starter-checklist.html">starter checklist</a> and follow it to list your first one.</li>
+</ol>
+<p>If you finish week one with <strong>one listing up and zero dollars regretted</strong>, you're already ahead of most people who saved this tab.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="index.html"><span class="dir">Previous</span>Start Here</a>
+      <a class="next" href="02-sourcing-calmly.html"><span class="dir">Next</span>Sourcing Calmly</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Side-Hustle Reseller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

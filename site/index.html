@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start Here — The Side-Hustle Reseller Handbook</title>
+<style>
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #2b2a28;
+  --muted: #6f6a62;
+  --accent: #2f6b4f;
+  --accent-soft: #e2efe7;
+  --line: #e0e6df;
+  --code-bg: #f1f2ee;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #1f1d1a;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #26312b;
+  color: #eef2ec;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #1d4a36; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Side-Hustle Reseller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="active" href="index.html">Start Here</a></li><li><a class="" href="01-what-sells.html">What Sells</a></li><li><a class="" href="02-sourcing-calmly.html">Sourcing Calmly</a></li><li><a class="" href="03-photos-and-listings.html">Photos &amp; Listings</a></li><li><a class="" href="04-shipping-without-stress.html">Shipping</a></li><li><a class="" href="05-fees-and-taxes.html">Fees &amp; Taxes</a></li><li><a class="" href="06-keeping-records.html">Keeping Records</a></li><li><a class="" href="07-scam-proofing.html">Scam-Proofing</a></li><li><a class="" href="08-quitting-politely.html">Quitting Politely</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="starter-checklist.html">Starter Checklist</a></li><li><a class="" href="fee-think-worksheet.html">Fee-Think Worksheet</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="start-here">Start Here</h1>
+<p>Welcome. Maybe you have a garage shelf of thingamabobs and a browser tab that says <em>"is eBay a good side hustle?"</em> open at all times. This handbook was written for you — with zero judgment attached. It's about <strong>part-time reselling</strong>: buying things (or finding them), selling them on eBay or Amazon, and keeping the whole operation small enough that it stays fun.</p>
+<h2 id="the-promise-of-this-book">The promise of this book</h2>
+<p>By the end, you'll be able to answer these questions in your own words:</p>
+<ol>
+<li><strong>What should I actually sell first?</strong> (Short version: small, common, easy-to-ship, boring.)</li>
+<li><strong>How do I find inventory without spending money I'll regret?</strong> (Thrift, clearance, and your own closets — with a hard spending rule.)</li>
+<li><strong>How do I list things well with just my phone?</strong> (Photos, titles, and honesty — in about ten minutes per item.)</li>
+<li><strong>How do I ship things without a panic attack?</strong> (One box drawer, one scale, one drop-off routine.)</li>
+<li><strong>What about fees and taxes?</strong> (In plain round numbers, not spreadsheets that fight back.)</li>
+<li><strong>How do I spot a scam before it spots me?</strong> (A short list of red flags that covers most of them.)</li>
+<li>**And — being fully honest — how do I quit politely if it stops being fun?** (Because it's a side hustle, not a life sentence.)</li>
+</ol>
+<p>You will not need a warehouse, a pallet partner, a 40-page business plan, or a single dollar of borrowed money for any of it.</p>
+<h2 id="how-to-read-it">How to read it</h2>
+<p>The chapters build on each other, but each one stands on its own too. Honest shortcuts:</p>
+<ul>
+<li><strong>"Is this even worth trying?"</strong> Read <a href="01-what-sells.html">What sells</a> and the <a href="fee-think-worksheet.html">Fee-think worksheet</a>.</li>
+<li><strong>"I want to list my first thing today, no more reading."</strong> Read <a href="03-photos-and-listings.html">Photos and listings</a>, then follow the <a href="starter-checklist.html">Starter checklist</a>.</li>
+<li><strong>"Money questions."</strong> <a href="05-fees-and-taxes.html">Fees and taxes</a> and <a href="06-keeping-records.html">Keeping records</a>.</li>
+<li><strong>"I'm feeling nervous."</strong> <a href="07-scam-proofing.html">Scam-proofing</a> first.</li>
+<li><strong>"I think I'm done."</strong> <a href="08-quitting-politely.html">Quitting politely</a> — no shame, real plan.</li>
+</ul>
+<h2 id="the-ground-rules-we-wrote-by">The ground rules we wrote by</h2>
+<p>Three promises, kept on every page:</p>
+<ol>
+<li><strong>No condescension.</strong> If a word needs defining, we define it the first time (see the <a href="glossary.html">Glossary</a>). If a step sounds obvious, we say it anyway — because "obvious" is only obvious once you know it.</li>
+<li><strong>Round numbers, clearly flagged.</strong> Fee and tax figures here are rounded on purpose so you can do them in your head. When you need exact math, that's what tools are for.</li>
+<li><strong>Low stakes first.</strong> We start with items where even a mistake is boring: a five-dollar book that ships in a padded envelope. You graduate to bigger things only when <em>you</em> feel ready.</li>
+</ol>
+<h2 id="this-book-is-the-judgment-the-tools-do-the-math">This book is the judgment. The tools do the math.</h2>
+<p>Two companion tools from Asdale Dynamics, LLC pair naturally with this handbook, and this book deliberately does <strong>not</strong> repeat their jobs:</p>
+<ul>
+<li><strong>Resale Lot Builder</strong> — turns an itemized CSV of your stash into bundle suggestions and profit forecasts for lots. If this handbook ends with you holding a shoebox of related items, that tool is how you finish the job.</li>
+<li><strong>Shipping-Cost Comparer (CLI)</strong> — compares carrier rates for a given weight, size, and destination. This book teaches shipping <em>judgment</em> (when, what, and where); that tool computes <em>which rate wins</em>.</li>
+</ul>
+<p>Use whichever one you need; nothing here requires them, and nothing here duplicates them.</p>
+<h2 id="what-this-handbook-is-not">What this handbook is not</h2>
+<ul>
+<li>It is not tax, legal, or financial advice. It uses **round numbers on purpose** — the "about" service, not the "exact" service. When a decision gets real (money, legal, health), a real professional belongs in the conversation.</li>
+<li>It is not a get-rich scheme, and it will not promise that numbers go up. Reselling is a real job with real hours. We just want the hours to be calm.</li>
+<li>It is not finished. Marketplaces change; this book is versioned, updated, and open source under the MIT license. Corrections welcome.</li>
+</ul>
+<h2 id="the-one-paragraph-version-of-the-whole-book">The one-paragraph version of the whole book</h2>
+<p>Sell small, common things you understand. Pay for inventory with cash you already had. $1 of scale beats $1 of guessing. Photograph on a plain background with window light and describe flaws before the buyer finds them. Ship in a flat, padded, well-taped package with your scale's number as truth. Keep about a third of every profit aside in an envelope marked TAXES (rudy math: sale − cost − fees − shipping = <strong>taxable profit</strong>). Keep one simple list per week in a spreadsheet or notebook, and back it up twice a year (that's your record-keeping done). Decline anything that smells like an overpay stranger in a hurry. And the moment the fun is gone for three therapy-not-boring weeks in a row, <a href="08-quitting-politely.html">quit politely</a>, on your own terms, with your records intact and your name in good standing.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      
+      <a class="next" href="01-what-sells.html"><span class="dir">Next</span>What Sells</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Side-Hustle Reseller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

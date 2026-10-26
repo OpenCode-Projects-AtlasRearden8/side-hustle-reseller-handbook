@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keeping Records (Simple, Durable, Done) — The Side-Hustle Reseller Handbook</title>
+<style>
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #2b2a28;
+  --muted: #6f6a62;
+  --accent: #2f6b4f;
+  --accent-soft: #e2efe7;
+  --line: #e0e6df;
+  --code-bg: #f1f2ee;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #1f1d1a;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #26312b;
+  color: #eef2ec;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #1d4a36; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Side-Hustle Reseller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-what-sells.html">What Sells</a></li><li><a class="" href="02-sourcing-calmly.html">Sourcing Calmly</a></li><li><a class="" href="03-photos-and-listings.html">Photos &amp; Listings</a></li><li><a class="" href="04-shipping-without-stress.html">Shipping</a></li><li><a class="" href="05-fees-and-taxes.html">Fees &amp; Taxes</a></li><li><a class="active" href="06-keeping-records.html">Keeping Records</a></li><li><a class="" href="07-scam-proofing.html">Scam-Proofing</a></li><li><a class="" href="08-quitting-politely.html">Quitting Politely</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="starter-checklist.html">Starter Checklist</a></li><li><a class="" href="fee-think-worksheet.html">Fee-Think Worksheet</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="keeping-records-simple-durable-done">Keeping Records (Simple, Durable, Done)</h1>
+<p>Reselling records have one job: at tax time, prove the story you already know. They don't need to be pretty, complete to the cent, or stored in fancy software. They need to <em>exist</em>, be findable, and get backed up every so often. This chapter gives you the simplest version that survives an audit-shaped afternoon with your head up.</p>
+<h2 id="the-one-table-that-does-everything">The one table that does everything</h2>
+<p>One spreadsheet — or one paper notebook page per month if you're analog — with these columns:</p>
+<table><thead><tr><th>Date</th><th>Item</th><th>Source</th><th>Paid</th><th>Platform</th><th>Buyer paid</th><th>Fees+ship</th><th>Sold?</th></tr></thead><tbody><tr><td>10/03</td><td>2 hardcover children's books</td><td>thrift</td><td>$3.00</td><td>eBay</td><td>$22.00</td><td>$4.30</td><td>yes</td></tr><tr><td>10/11</td><td>watercolor pad, 9x12</td><td>own house</td><td>$0.00</td><td>eBay</td><td>—</td><td>—</td><td>listed</td></tr><tr><td>10/19</td><td>hand plane</td><td>yard sale</td><td>$8.00</td><td>eBay</td><td>$58.00</td><td>$9.75</td><td>yes</td></tr><tr><td><em>TOTAL (this month)</em></td><td></td><td></td><td><em>$11.00</em></td><td></td><td><em>$80.00</em></td><td><em>$14.05</em></td><td></td></tr></tbody></table>
+<p>Every tax-relevant question falls out of seven columns. When digital becomes annoying, a monthly <strong>photograph of the notebook page</strong> is an acceptable backup method — blurry is fine; receipts live in a second photo album if you bought from a store.</p>
+<h2 id="the-monthly-twenty-minutes">The monthly twenty minutes</h2>
+<p>Once a month, the whole bookkeeping routine:</p>
+<ol>
+<li><strong>Copy totals into the month row.</strong> Your marketplace's *Payments / Statements* page lists the total from the year, but copy your own running total into a <strong>second tab</strong> (or a total line at the bottom).</li>
+<li><strong>Envelope the tax share.</strong> From the <a href="05-fees-and-taxes.html">25%-of-profit rule</a>, move the number to the cushion.</li>
+<li><strong>Photograph receipts</strong> from the month into one folder / album named <code>resale-receipts-2026-10</code>. Done means <em>backed up</em>, not organized.</li>
+<li><strong>Close the month.</strong> Two totals to scribble: money-in, money-spent. Anything else is decoration.</li>
+</ol>
+<p>Twenty minutes. If you find yourself spending an evening on it, the system grew; prune it back to the seven columns.</p>
+<h2 id="what-counts-as-an-expense-plain-language-version">What counts as an expense (plain-language version)</h2>
+<p>Worth remembering, in rounded plain English — <em>keep the receipts for these</em>:</p>
+<ul>
+<li>What you paid for inventory (thrift receipts, store receipts, the shipping counter).</li>
+<li>Marketplace and payment fees (they show up in your account statements, downloadable as PDF or CSV — no manual tracking needed).</li>
+<li>Packing supplies, tape, scale: real, small, keep receipts.</li>
+<li>The mileage part of sourcing trips and post-office trips is a category worth one look at tax time, not a hobby today (a small <strong>mileage log</strong> app or one paper line per trip does until then).</li>
+<li>A portion of your home internet or a room <em>can</em> count under stricter rules — this is squarely "ask a professional when it grows" territory.</li>
+</ul>
+<p>The technique behind the receipts: <strong>photograph every paper receipt the day you get it.</strong> Paper fades; camera rolls don't.</p>
+<h2 id="what-the-records-protect">What the records <em>protect</em></h2>
+<p>When you keep the seven columns, you don't need intent to be perfect when:</p>
+<ul>
+<li>You file taxes — profit is one subtraction, receipts exist for the best scary-questions version of the meeting.</li>
+<li>You buy a <strong>bigger</strong> thing — because a growing hustle needs a paper trail of exactly the shape you already built.</li>
+<li><a href="07-scam-proofing.html">A buyer claims something went wrong</a> — the row with the sale date and weight is your whole defense exhibit.</li>
+<li>You <a href="08-quitting-politely.html">quit politely</a> — the winding-down story ("sold, donated, kept") is present in your own handwriting.</li>
+</ul>
+<h2 id="backups-the-low-energy-version">Backups, the low-energy version</h2>
+<p>The spreadsheet lives in <strong>two places</strong> from day one: your local Documents folder <em>and</em> the one cloud you already pay occasional attention to (or any USB stick in your bag). Backup cadence for a part-timer: <strong>when you close the month</strong>, copy the file over. If a laptop dies, you lose — at absolute worst — the current month's rows. That's a <em>win</em>, not a disaster.</p>
+<p>Exactly one rule to obey: <strong>never keep the only copy inside the app that would disappear with it.</strong> If a reselling app or marketplace dashboard is where your list of items lives, copy it into your own file — once a month is plenty.</p>
+<h2 id="when-you-outgrow-the-notebook">When you outgrow the notebook</h2>
+<p>Signs you're ready for real bookkeeping software — which is a <em>good</em> problem: real store receipts showing up at volume, more platforms than fingers, first business-bank-account question, or a professional asking. Until then, one table, seven columns, a photo of every receipt, a monthly envelope — this is the whole system, and it holds a part-time hustle comfortably for years.</p>
+<blockquote><p>If bookkeeping is the part that threatens your fun, remember: this whole chapter is <em>twenty minutes a month</em>, and the <a href="08-quitting-politely.html">fun check</a> has a question about that, too.</p></blockquote>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="05-fees-and-taxes.html"><span class="dir">Previous</span>Fees &amp; Taxes</a>
+      <a class="next" href="07-scam-proofing.html"><span class="dir">Next</span>Scam-Proofing</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Side-Hustle Reseller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

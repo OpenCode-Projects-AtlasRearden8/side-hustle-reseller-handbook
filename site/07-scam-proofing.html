@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scam-Proofing Your Little Shop — The Side-Hustle Reseller Handbook</title>
+<style>
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #2b2a28;
+  --muted: #6f6a62;
+  --accent: #2f6b4f;
+  --accent-soft: #e2efe7;
+  --line: #e0e6df;
+  --code-bg: #f1f2ee;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #1f1d1a;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #26312b;
+  color: #eef2ec;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #1d4a36; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Side-Hustle Reseller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-what-sells.html">What Sells</a></li><li><a class="" href="02-sourcing-calmly.html">Sourcing Calmly</a></li><li><a class="" href="03-photos-and-listings.html">Photos &amp; Listings</a></li><li><a class="" href="04-shipping-without-stress.html">Shipping</a></li><li><a class="" href="05-fees-and-taxes.html">Fees &amp; Taxes</a></li><li><a class="" href="06-keeping-records.html">Keeping Records</a></li><li><a class="active" href="07-scam-proofing.html">Scam-Proofing</a></li><li><a class="" href="08-quitting-politely.html">Quitting Politely</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="starter-checklist.html">Starter Checklist</a></li><li><a class="" href="fee-think-worksheet.html">Fee-Think Worksheet</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="scam-proofing-your-little-shop">Scam-Proofing Your Little Shop</h1>
+<p>Most transactions are honest. The scammy ones share habits, and once you know the habits they're almost boring to spot. This chapter is your short list — for buyers <em>and</em> for an inbox that occasionally pretends to be eBay.</p>
+<h2 id="red-flags-in-messages-from-buyers">Red flags in messages from "buyers"</h2>
+<p>A message contains a scam characteristic when it includes any of these:</p>
+<ul>
+<li><strong>Overpayment.</strong> "I'll send you $70 for the $25 item, keep the rest for your trouble." The overage has ways of vanishing after you've refunded real money. Decline every time.</li>
+<li><strong>Off-platform payment.</strong> "Venmo me / Zelle me / wire me and I'll pay no fees." Every part of this sentence is the scam: outside the marketplace you have **no buyer-protection shield, no fee math, and no one to appeal to**.</li>
+<li><strong>Speed pressure with specifics.</strong> "My son arrives at 4pm and will pick it up in person; here's a check for shipping." A hurry dramatized with details is pressure wearing a costume.</li>
+<li><strong>Codes, links, and "verify" requests.</strong> Anyone who asks for a code texted to your phone is trying to log in <em>as you</em>. Codes are never shareable. Nothing legitimate requires one.</li>
+<li><strong>"Just ship it any way you want" with pre-printed labels.</strong> A real label is real; a label that reroutes to some third address is a laundering route, not postage.</li>
+<li><strong>Emotional story + lining-up a quick price cut.</strong> We can all be kind <em>and</em> still say "everything's through the marketplace, sorry."</li>
+</ul>
+<p>The correct one-line reply to nearly all of them, calm and final:</p>
+<blockquote><p>"Thanks for your interest — I only sell and ship through the marketplace, so everything's covered for both of us."</p></blockquote>
+<p>That sentence doesn't argue. It doesn't have to.</p>
+<h2 id="the-inbox-that-isnt-ebay">The inbox that isn't eBay</h2>
+<p>Phishing emails are just fake-buyer messages wearing a uniform. Checks:</p>
+<ul>
+<li><strong>Real platforms never ask</strong> for your password, a code, a card number, or your Social Security number by email. Assume urgent = fake.</li>
+<li><strong>Don't click; go.</strong> If an email says your account has a problem, open a <em>new</em> tab, type the marketplace address yourself, and look. If the problem is real, it'll be visible from there. This one habit ends 90% of phishing.</li>
+<li>**The message shows up *in the app*** vs. only by email: platform messages relating to real orders appear under "Messages"/"My Account". A payment "confirmation" that arrives <em>only</em> as an email — with a hopeful-sounding file to download — is the classic fake. Real payment appears in your actual balance. <strong>Balance is truth; email is suggestion.</strong></li>
+</ul>
+<h2 id="when-youve-already-shipped-and-the-story-turns">When you've already shipped and the story turns</h2>
+<p>Two recurring shapes, and your shield for both:</p>
+<ul>
+<li><strong>"Item not received."</strong> Tracking is your whole answer — which is why buying labels in-app (they auto-upload tracking) is both a convenience and a legal-looking paper trail. If tracking shows delivered but the buyer says no, the marketplace's protection process will review it calmly. Reply once, attach your [pack photo and weight note](04-shipping-without-stress.md), and stop typing; escalate within the platform's own process — it exists, it's staffed, and it beats improvising your own remedies.</li>
+<li><strong>"Item not as described."</strong> Check whether page photos really showed what arrived (they did, or you'd have mentioned it first — see the <a href="03-photos-and-listings.html">describing chapter</a>). Either way, the part-time play is usually: accept the return, refund when it lands. Not out of guilt — out of <em>arithmetic</em>, since your review score is worth more than a $15 argument. If the return is slow, the platform intervenes for you; you don't have to improvise remedies.</li>
+</ul>
+<h2 id="a-scam-test-that-fits-on-an-index-card">A scam test that fits on an index card</h2>
+<p>Before you reply to <em>any</em> unusual message, run four questions:</p>
+<ol>
+<li>Am I being asked to move money, codes, or the conversation **off the platform**? (If yes: no.)</li>
+<li>Is there a <strong>hurry with a story</strong> attached? (If yes: slow down.)</li>
+<li>Does the transaction leave me with <strong>no platform protection</strong>? (If yes: stop.)</li>
+<li>If I ignore this message entirely, would a real buyer simply *buy through the listing*, like the last twenty honest people did? (If yes: that's your answer.)</li>
+</ol>
+<p>If all four come back clean, respond through the platform normally. That four-card test — plus "balance is truth, email is suggestion" — covers most of the scam-shaped things you'll meet in a part-time resale life.</p>
+<h2 id="whats-not-a-scam-so-you-dont-get-paranoid">What's <em>not</em> a scam (so you don't get paranoid)</h2>
+<ul>
+<li>A buyer asking a normal question twice, because texts interrupt lives.</li>
+<li>A buyer sending an offer 20% lower — offers are shopping, not fraud.</li>
+<li>A buyer who seems new with no feedback; everyone started at zero (protections still apply to you both).</li>
+<li>A return that actually arrives in more worn shape than it left — painful, occasionally unfair, but not a scam. Deal with it calmly via the platform.</li>
+</ul>
+<p>If you'd like a printable version of the four questions plus the calm-reply line, the <a href="starter-checklist.html">starter checklist</a> includes the seller's side, and this chapter is the why behind it. When a specific message makes you nervous <em>and</em> the test is ambiguous, the rule of the whole chapter is: <strong>do nothing for one day.</strong> Real deals keep almost always; fake ones evaporate.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="06-keeping-records.html"><span class="dir">Previous</span>Keeping Records</a>
+      <a class="next" href="08-quitting-politely.html"><span class="dir">Next</span>Quitting Politely</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Side-Hustle Reseller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

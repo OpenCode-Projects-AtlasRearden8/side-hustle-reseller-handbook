@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photos and Listings (Just Your Phone) — The Side-Hustle Reseller Handbook</title>
+<style>
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #2b2a28;
+  --muted: #6f6a62;
+  --accent: #2f6b4f;
+  --accent-soft: #e2efe7;
+  --line: #e0e6df;
+  --code-bg: #f1f2ee;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #1f1d1a;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #26312b;
+  color: #eef2ec;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #1d4a36; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Side-Hustle Reseller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-what-sells.html">What Sells</a></li><li><a class="" href="02-sourcing-calmly.html">Sourcing Calmly</a></li><li><a class="active" href="03-photos-and-listings.html">Photos &amp; Listings</a></li><li><a class="" href="04-shipping-without-stress.html">Shipping</a></li><li><a class="" href="05-fees-and-taxes.html">Fees &amp; Taxes</a></li><li><a class="" href="06-keeping-records.html">Keeping Records</a></li><li><a class="" href="07-scam-proofing.html">Scam-Proofing</a></li><li><a class="" href="08-quitting-politely.html">Quitting Politely</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="starter-checklist.html">Starter Checklist</a></li><li><a class="" href="fee-think-worksheet.html">Fee-Think Worksheet</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="photos-and-listings-just-your-phone">Photos and Listings (Just Your Phone)</h1>
+<p>Good cell-phone photos aren't an accessory to selling — on most marketplaces they <em>are</em> the listing. This chapter covers the whole loop: shoot, describe, price, publish — then batch it so ten items take ninety minutes, not one.</p>
+<h2 id="the-five-minute-photo-setup">The five-minute photo setup</h2>
+<p>You need one window with daylight, not a lamp:</p>
+<ol>
+<li><strong>Background.</strong> A plain white or light-gray surface: a poster board, a cookie sheet, a white pillowcase. Not your patterned bedsheets. The plain background does two jobs — it makes the item readable, and it quietly signals "careful seller."</li>
+<li><strong>Light.</strong> Daylight from a window pointing <em>at</em> the item, never from behind it. If you have no window free, a porch or car hood in shade works. No flashlight-on-the-dinner-table telling fibs about color.</li>
+<li><strong>The 8 photos.</strong> Shoot these, always, in this order:</li>
+</ol>
+<ul>
+<li>front, straight-on</li>
+<li>back</li>
+<li>both sides</li>
+<li>any <strong>flaw</strong> (stain, scuff, missing something) — big and in focus</li>
+<li>the label / brand / size tag</li>
+<li>inside / what's included, everything on the surface</li>
+<li>one photo of it being held or measured, for scale</li>
+</ul>
+<p>That's the whole shot list. Items under $20 can honestly do with 5, and books with 4. Nothing gets <em>zero</em> flaw photos — see the honesty section below.</p>
+<h2 id="describing-like-a-friend-would">Describing like a friend would</h2>
+<p>Write the description the way you'd text a friend who asked <em>"what's wrong with it?"</em> You are not writing persuasive ad copy; you're writing an honest report card:</p>
+<pre><code>Mission-style oak bookends, pair. Heavy — just under 4 lb for both.
+One scuff on the left base (photo 5), felt bottoms intact.
+All four felt pads present. Measures 6&quot; x 3.25&quot; x 4&quot;.
+From a clean smoke-free, paw-free home. Ships USPS Ground Advantage.
+</code></pre>
+<p>Three rules inside that sample:</p>
+<ul>
+<li><strong>Flaws before features</strong> is optional, but *flaws before the buyer finds them* is not. A buyer who's already seen the scuff in photo 5 doesn't feel surprised.</li>
+<li><strong>Measure with a tape</strong>, write the numbers plainly. "Compact" is a feeling; "6 in" is a fact.</li>
+<li><strong>Say how it ships.</strong> "Ships USPS Ground Advantage" tells the buyer what to expect and keeps your <a href="04-shipping-without-stress.html">shipping chapter</a> promises consistent.</li>
+</ul>
+<h2 id="titles-that-search-engines-can-help">Titles that search engines can help</h2>
+<p>Most marketplaces are search boxes before they're shops. Titles obey one simple law: <strong>be findable, then be honest, in under 80 characters.</strong></p>
+<ul>
+<li>All caps and exclamation marks help nobody find you.</li>
+<li>The words a buyer would type: brand, item, key attribute ("The Great British Baking Show hardcover cookbook 2019" not "STUNNING MUST-SEE RARE CATALOG").</li>
+<li>Skip vanity words in the title; "rare" belongs in spare punctuation.</li>
+</ul>
+<p><strong>Item specifics</strong> (eBay calls them that; Amazon calls most of them required) matter more than beauty in the title: brand, model, size, color, condition. Fill them conscientiously — they power the filters buyers hide behind.</p>
+<h2 id="pricing-sold-listings-not-hopes">Pricing: sold listings, not hopes</h2>
+<p>Before you list, look up what <em>actually sold</em> for the same item or the closest thing to it:</p>
+<ol>
+<li>Search the item name on the marketplace.</li>
+<li><strong>Filter to sold/completed listings</strong> — on eBay that's the "Sold Items" filter. Asking prices are wishes; sold prices are facts.</li>
+<li>Take the <em>middle</em> of the recent solds, not the top. The one $75 sale three years ago is not your price; the eight sales this month are.</li>
+<li>Round to a clean number. Clean numbers are easier to remember on reprice day.</li>
+</ol>
+<p>If there are no recent solds, price for the walk-away rule: a price you'd still be fine with when three weeks of silence follow. When the arithmetic gets real — bundles, cost, fees — that's what the <a href="fee-think-worksheet.html">Fee-think worksheet</a> is for, and its numbers are designed for the back of an envelope.</p>
+<h2 id="honor-the-markdown-clock">Honor the markdown clock</h2>
+<p>Listings age. Pick a personal policy, write it down, and apply it without much thought:</p>
+<ul>
+<li><strong>Days 0–14:</strong> your researched price.</li>
+<li><strong>Day 15:</strong> knock about 10–15% off (round number: reduce by a round dollar amount).</li>
+<li><strong>Day 45:</strong> drop to your walk-away floor, or relist to refresh.</li>
+<li><strong>Day 90–120:</strong> consider the honest endgame — donate it, bundle it (the companion <strong>Resale Lot Builder</strong> tool forecasts whether bundling beats selling separately), or let it go.</li>
+</ul>
+<p>That schedule is a template, not a law. The point is having one, so repricing is a <em>chore with a calendar</em>, not a mood.</p>
+<h2 id="batch-it-your-listing-rhythm">Batch it: your listing rhythm</h2>
+<p>Listing one item takes ten times the energy of listing five in a row, so batch:</p>
+<ol>
+<li><strong>Shoot a whole batch</strong> of 5–10 items in one five-minute setup (same background, same table).</li>
+<li><strong>Draft them all, then publish.</strong> Drafting with no pressure, then hitting publish ten times in a row, is a different feeling than starting from a blank form every five minutes.</li>
+<li><strong>End the session by writing down the batch</strong> in your own record — one line per item, exactly as the <a href="06-keeping-records.html">records chapter</a> prescribes.</li>
+</ol>
+<blockquote><p>When you photograph ten items on the same table in one sitting, compare against this chapter's shot list — the last three items get the "did I get the label?" double-check. Fatigue photos are blurry; nobody's scolded, we just take the second shot.</p></blockquote>
+<p>That's the whole loop. When you finish your first ten listings, treat it like a milestone; the <a href="starter-checklist.html">starter checklist</a> treats it like one too.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="02-sourcing-calmly.html"><span class="dir">Previous</span>Sourcing Calmly</a>
+      <a class="next" href="04-shipping-without-stress.html"><span class="dir">Next</span>Shipping</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Side-Hustle Reseller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fee-Think Worksheet — The Side-Hustle Reseller Handbook</title>
+<style>
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #2b2a28;
+  --muted: #6f6a62;
+  --accent: #2f6b4f;
+  --accent-soft: #e2efe7;
+  --line: #e0e6df;
+  --code-bg: #f1f2ee;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #1f1d1a;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #26312b;
+  color: #eef2ec;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #1d4a36; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Side-Hustle Reseller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-what-sells.html">What Sells</a></li><li><a class="" href="02-sourcing-calmly.html">Sourcing Calmly</a></li><li><a class="" href="03-photos-and-listings.html">Photos &amp; Listings</a></li><li><a class="" href="04-shipping-without-stress.html">Shipping</a></li><li><a class="" href="05-fees-and-taxes.html">Fees &amp; Taxes</a></li><li><a class="" href="06-keeping-records.html">Keeping Records</a></li><li><a class="" href="07-scam-proofing.html">Scam-Proofing</a></li><li><a class="" href="08-quitting-politely.html">Quitting Politely</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="starter-checklist.html">Starter Checklist</a></li><li><a class="active" href="fee-think-worksheet.html">Fee-Think Worksheet</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="fee-think-worksheet">Fee-Think Worksheet</h1>
+<p>One page, pencil-grade math, designed to be used <em>while standing in a thrift store</em>. Print it, or run it in your head, or — when the stack of decisions gets bigger than a page — let the companion <strong>Resale Lot Builder</strong> tool run the same arithmetic over your whole CSV at once.</p>
+<h2 id="the-thinking-ladder-four-rungs">The thinking ladder (four rungs)</h2>
+<p>For any item you're about to pay for, fill in top to bottom:</p>
+<ol>
+<li><strong>What does it usually sell for?</strong> (Sold listings, not hopes.)</li>
+<li><strong>What's the whole ask?</strong> Price the buyer would pay, including shipping if you'd roll it into the price.</li>
+<li><strong>What comes out?</strong> Fees (about 13-15%, round to 15 to be safe) and the shipping label if you're paying it.</li>
+<li><strong>What's left, minus cost? Is that a number worth your evening?</strong></li>
+</ol>
+<h2 id="the-worksheet-copy-it-on-paper">The worksheet (copy it on paper)</h2>
+<pre><code>ITEM: __________________________   DATE: _________
+
+1. TYPICAL SOLD PRICE ................ $ _________
+2. WHAT A BUYER WOULD PAY ME ......... $ _________
+     (list price; or price + shipping)
+3. MARKETPLACE FEES, ROUNDED ~15% .... $ _________ = (#2 x 0.15)
+4. SHIPPING LABEL IF *I* PAY ......... $ _________
+5. WHAT&#x27;S LEFT BEFORE ITEM COST ...... $ _________ = (#2 - #3 - #4)
+6. MY ITEM COST ...................... $ _________
+7. MY PROFIT IF NOTHING GOES WRONG ... $ _________ = (#5 - #6)
+8. WHAT COULD GO WRONG (1 thing) ..... ________________
+9. STILL WORTH IT? ...................  YES / NO / MAYBE
+</code></pre>
+<h2 id="a-worked-example-with-deliberately-round-numbers">A worked example (with deliberately round numbers)</h2>
+<p>You're looking at a sturdy, brand name, unpowered gadget for <strong>$6</strong>.</p>
+<pre><code>1. TYPICAL SOLD PRICE ................ $ 30    (recent solds: 22–38, mid=30)
+2. WHAT A BUYER WOULD PAY ME ......... $ 30    (free shipping promise)
+3. MARKETPLACE FEES, ROUNDED ~15% .... $ 4.50
+4. SHIPPING LABEL IF *I* PAY ......... $ 6     (heavier than an envelope)
+5. WHAT&#x27;S LEFT BEFORE ITEM COST ...... $ 19.50
+6. MY ITEM COST ...................... $ 6
+7. MY PROFIT IF NOTHING GOES WRONG ... $ 13.50   ← &quot;about $13&quot;
+8. WHAT COULD GO WRONG (1 thing) ..... knob missing → buh-bye price
+9. STILL WORTH IT? ...................  YES (check the knob *before* paying)
+</code></pre>
+<p>Thirteen dollars of <em>paper</em> profit for one calm listing, one envelope-sized question, one standing drop-off trip. That's a real side-hustle unit of work. Contrast the same math on a <strong>$2 book</strong>:</p>
+<pre><code>1. TYPICAL SOLD PRICE ................ $ 7
+2. WHAT A BUYER WOULD PAY ME ......... $ 7
+3. MARKETPLACE FEES, ROUNDED ~15% .... $ 1.05  (round up: $1.10)
+4. SHIPPING LABEL IF *I* PAY ......... $ 4     (padded envelope, media-adjacent rate)
+5. WHAT&#x27;S LEFT BEFORE ITEM COST ...... $ 1.90
+6. MY ITEM COST ...................... $ 2
+7. MY PROFIT / LOSS .................. ≈ –$0.10 ... PROBLEM
+</code></pre>
+<p>Why the problem line matters: at the $7 tier, the <strong>shipping label eats the margin</strong> unless your sourcing cost is <em>effectively zero</em> (your own shelves, or a "free-fill-a-bag" table) <em>and</em> your label technique is genuinely the cheapest honest one. This is why the books-first advice always comes with a <strong>volume</strong> caveat — one calm book listing is decoration; a batch of fifteen is a category. (When you want to know if a <em>bundle</em> of those books nets more — that's the lot-vs-single math for <strong>Resale Lot Builder</strong>.)</p>
+<h2 id="the-walk-away-floor">The walk-away floor</h2>
+<p>Line 7 exists to protect you on <strong>reprice day</strong>. When a listing ages (<a href="03-photos-and-listings.html">day-15 markdown</a>), your floor — the lowest price you'll ever accept — is:</p>
+<blockquote><p><strong>floor = your item cost + fees-at-that-price + label if you pay it</strong></p></blockquote>
+<p>Below the floor, "selling" is a donation to the postal service. Write the floor on the same paper as the listing draft. If a <em>best-offer</em> arrives above the floor, accept or counter with peace; below the floor, decline and wait for the next buyer — there's always one, just not always quickly, and that's what <a href="08-quitting-politely.html">fun checks</a> are for.</p>
+<h2 id="worksheet-at-a-glance-when-theres-no-paper">Worksheet, at a glance (when there's no paper)</h2>
+<ul>
+<li>Under <strong>$10 sold price</strong>: label math will dominate. Envelope category only, free-source category preferred.</li>
+<li><strong>$10–$40 sold</strong>: the Half Rule is accurate enough; cost of item barely matters.</li>
+<li><strong>$40+</strong>: actually fill the worksheet every time. One line of paper has saved more than one weekend.</li>
+<li>Any price you wouldn't want to <em>explain</em> to a friend in two sentences: probably over-thought; walk or simplify.</li>
+</ul>
+<p>The whole point of fee-think is <em>fewer decisions, not more.</em> One worksheet, nine lines, one yes/no. Fill it once per item and stop doing math after the register.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="starter-checklist.html"><span class="dir">Previous</span>Starter Checklist</a>
+      <a class="next" href="glossary.html"><span class="dir">Next</span>Glossary</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Side-Hustle Reseller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

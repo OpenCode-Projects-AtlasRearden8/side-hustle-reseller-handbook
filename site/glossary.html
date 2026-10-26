@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary — The Side-Hustle Reseller Handbook</title>
+<style>
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #2b2a28;
+  --muted: #6f6a62;
+  --accent: #2f6b4f;
+  --accent-soft: #e2efe7;
+  --line: #e0e6df;
+  --code-bg: #f1f2ee;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #1f1d1a;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #26312b;
+  color: #eef2ec;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #1d4a36; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Side-Hustle Reseller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-what-sells.html">What Sells</a></li><li><a class="" href="02-sourcing-calmly.html">Sourcing Calmly</a></li><li><a class="" href="03-photos-and-listings.html">Photos &amp; Listings</a></li><li><a class="" href="04-shipping-without-stress.html">Shipping</a></li><li><a class="" href="05-fees-and-taxes.html">Fees &amp; Taxes</a></li><li><a class="" href="06-keeping-records.html">Keeping Records</a></li><li><a class="" href="07-scam-proofing.html">Scam-Proofing</a></li><li><a class="" href="08-quitting-politely.html">Quitting Politely</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="starter-checklist.html">Starter Checklist</a></li><li><a class="" href="fee-think-worksheet.html">Fee-Think Worksheet</a></li><li><a class="active" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="glossary">Glossary</h1>
+<p>Every word this handbook uses, defined like a friend would. Cross-links hop to the chapter where the word earned its definition.</p>
+<p><strong>Batch</strong> — Doing one task for several items in a row instead of doing the whole task per item. The reason ten listings take ninety minutes.</p>
+<p><strong>Bundle / lot</strong> — Several related items sold as one listing. The companion <strong>Resale Lot Builder</strong> tool forecasts whether a lot nets more than selling pieces (<a href="01-what-sells.html">what sells</a>).</p>
+<p><strong>Buyer pays for shipping</strong> — The listing passes the label price through to the buyer. Note the <a href="05-fees-and-taxes.html">fee on it</a> still applies.</p>
+<p><strong>Calculated shipping</strong> — The marketplace estimates label cost from weight and box size to charge the buyer. Requires your <a href="04-shipping-without-stress.html">scale</a> to be truthful.</p>
+<p><strong>Completed/sold listings</strong> — Sales that <em>actually happened</em>, as opposed to asking prices, which are wishes. Your only honest pricing data.</p>
+<p><strong>Cost of goods (item cost)</strong> — What you paid for the item. May be $0 for things sourced from your own house — a legal, honest exception, not a magic trick (<a href="02-sourcing-calmly.html">sourcing</a>).</p>
+<p><strong>Estimated taxes</strong> — Occasional quarterly income-tax payments some side-income earners are asked to send. Round version: most small profits land in the once-a-year range; confirm specifics with a professional.</p>
+<p><strong>Fee-think</strong> — Doing rounded profit math <em>before</em> buying, instead of after. The whole point of the <a href="fee-think-worksheet.html">worksheet</a>.</p>
+<p><strong>Feedback / review score</strong> — The marketplace's grade of you. Protect it with fast refunds, calm replies, and the serious habit of honest describing (<a href="03-photos-and-listings.html">photos and listings</a>).</p>
+<p><strong>Final value fee</strong> — The marketplace's percentage cut of everything the buyer paid, <em>including shipping</em>. Roughly 13-15% in round numbers on eBay (<a href="05-fees-and-taxes.html">fees</a>).</p>
+<p><strong>Flaw photo</strong> — A close, well-lit photo of the item's worst feature, taken before the buyer asks. The single strongest scam-prevention move available to a seller.</p>
+<p><strong>Floor (walk-away price)</strong> — The lowest price you'll accept: item cost + fees + label. Below the floor, selling is a donation.</p>
+<p><strong>Free shipping</strong> — A listing that rolls the label into the price. Note that it is free to the buyer, not free to the seller: the fee rides the whole amount.</p>
+<p><strong>Hazmat rules</strong> — Postal-law fact that batteries, aerosols, some liquids and "energy" items can't be shipped casually. Beginner rule: no batteries, no liquids; read up before you graduate.</p>
+<p><strong>Inventory</strong> — Things you own that you intend to sell. In <a href="06-keeping-records.html">records</a> terms: every row without a "sold" yet.</p>
+<p><strong>Lot</strong> — See <strong>bundle / lot</strong>.</p>
+<p><strong>Markdown clock</strong> — Your written rule for when a listing gets cheaper: day 15 −10-15%, day 45 to floor (<a href="03-photos-and-listings.html">listings</a>).</p>
+<p><strong>Marketplace</strong> — eBay, Amazon, and similar. The room you sell in; it keeps a cut, collects buyers' sales tax, and runs the protection system you lean on in <a href="07-scam-proofing.html">scam-proofing</a>.</p>
+<p><strong>Off-platform payment</strong> — Being paid outside the marketplace (check, wire, direct app). The structure of most scams: no protection, no fee math, no recourse. Never.</p>
+<p><strong>Offer</strong> — A buyer's proposed price. Shopping behavior, not an insult; counter above your <strong>floor</strong>.</p>
+<p><strong>Padded envelope</strong> — The flat, quilted mailer. The cheapest good shipping for small flat things, and the reason books are beginner-friendly.</p>
+<p><strong>Phishing</strong> — A fake email pretending to be a marketplace. Rule of the whole category: don't click links in it; go to the site directly.</p>
+<p><strong>Profit</strong> — sale price − item cost − fees − shipping. The only word tax authorities care about, and the only number your <a href="06-keeping-records.html">records</a> exist to prove.</p>
+<p><strong>Referral fee</strong> — Amazon's name for its category percentage cut (rounding: about 8-15% in many categories). Stackier than eBay; see <a href="05-fees-and-taxes.html">fees</a>.</p>
+<p><strong>Reprice / relist</strong> — Editing the price of an aging listing, or re-publishing it to refresh its visibility, per the markdown clock.</p>
+<p><strong>Returns</strong> — The buyer sends it back. Part-time play: accept them calmly, refund on arrival, keep reviews whole.</p>
+<p><strong>Sales tax</strong> — The buyer's tax on a purchase. Round-number comfort: big marketplaces <strong>collect and remit it for you</strong> in most places. (Not the same as income tax.)</p>
+<p><strong>Shipping station</strong> — Your one corner holding scale, tape, and a small box bank. A tidy station is the difference between chore and drama.</p>
+<p><strong>Sold listings</strong> — See <strong>completed/sold listings</strong>.</p>
+<p><strong>Time away (vacation mode)</strong> — The marketplace's banner and pause settings. Also the politest way to step back for a while — and central to a tidy exit (<a href="08-quitting-politely.html">quitting politely</a>).</p>
+<p><strong>Tracking</strong> — The scan history of a package. Your primary evidence in "item not received" disputes — one of many reasons labels belong in-app.</p>
+<p><strong>Walk-away price</strong> — See <strong>floor</strong>.</p>
+<p><strong>Wind-down</strong> — A four-to-six-week, no-new-purchases glide to a stopped state, as written in <a href="08-quitting-politely.html">quitting politely</a>.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="fee-think-worksheet.html"><span class="dir">Previous</span>Fee-Think Worksheet</a>
+      
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Side-Hustle Reseller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>

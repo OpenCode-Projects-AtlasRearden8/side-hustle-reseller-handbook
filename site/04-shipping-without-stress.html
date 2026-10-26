@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shipping Without Stress — The Side-Hustle Reseller Handbook</title>
+<style>
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #2b2a28;
+  --muted: #6f6a62;
+  --accent: #2f6b4f;
+  --accent-soft: #e2efe7;
+  --line: #e0e6df;
+  --code-bg: #f1f2ee;
+  --sidebar-w: 16.5rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.065rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+code, pre, .nav, .skip-link, .pager, .page-footer, .site-header {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+}
+
+.site-header {
+  background: var(--surface);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-header .tagline {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+.layout {
+  display: flex;
+  max-width: 72rem;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex: none;
+  position: sticky;
+  top: 0;
+  padding: 1.6rem 1rem 2rem;
+  font-size: 0.86rem;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.nav { list-style: none; margin: 0; padding: 0; }
+
+.nav .nav-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0.35rem;
+  display: block;
+}
+
+.nav .nav-label:first-child { margin-top: 0; }
+
+.nav a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  line-height: 1.35;
+}
+
+.nav a:hover { background: var(--accent-soft); }
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 2.4rem 1.2rem 3rem;
+}
+
+article {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.6rem 3rem;
+  max-width: 46rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+  color: #1f1d1a;
+  scroll-margin-top: 1rem;
+}
+
+h1 {
+  font-size: 2.05rem;
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+h2 { font-size: 1.45rem; margin: 2.2rem 0 0.7rem; }
+h3 { font-size: 1.18rem; margin: 1.8rem 0 0.5rem; }
+
+p { margin: 0.8rem 0; }
+
+a { color: var(--accent); }
+
+a:hover { text-decoration-thickness: 2px; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding: 0.7rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+blockquote p { margin: 0.3rem 0; }
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1rem 0.34rem;
+  font-size: 0.87em;
+}
+
+pre {
+  background: #26312b;
+  color: #eef2ec;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.55;
+  font-size: 0.86rem;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+ul, ol { padding-left: 1.5rem; margin: 0.8rem 0; }
+
+li { margin: 0.35rem 0; }
+
+ul.checklist { list-style: none; padding-left: 0.3rem; }
+
+ul.checklist li {
+  padding-left: 1.7rem;
+  position: relative;
+}
+
+ul.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  background: #fff;
+}
+
+ul.checklist li { margin: 0.55rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--accent-soft); color: #1d4a36; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--line);
+  margin: 2rem auto;
+  width: 60%;
+}
+
+.pager {
+  max-width: 46rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.4rem;
+  font-size: 0.85rem;
+}
+
+.pager a {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  text-decoration: none;
+  color: var(--ink);
+  flex: 1;
+}
+
+.pager a:hover { border-color: var(--accent); }
+.pager .next { text-align: right; }
+
+.pager .dir {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.page-footer {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.2rem 2rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.page-footer a { color: var(--muted); }
+
+@media (max-width: 56rem) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1rem;
+  }
+  article { padding: 1.6rem 1.2rem; }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-header">
+  <a class="brand" href="index.html">The Side-Hustle Reseller Handbook</a>
+  <span class="tagline">Asdale Dynamics, LLC</span>
+</header>
+<div class="layout">
+  <nav class="sidebar" aria-label="Chapters">
+    <ul class="nav"><li><span class="nav-label">The handbook</span></li><li><a class="" href="index.html">Start Here</a></li><li><a class="" href="01-what-sells.html">What Sells</a></li><li><a class="" href="02-sourcing-calmly.html">Sourcing Calmly</a></li><li><a class="" href="03-photos-and-listings.html">Photos &amp; Listings</a></li><li><a class="active" href="04-shipping-without-stress.html">Shipping</a></li><li><a class="" href="05-fees-and-taxes.html">Fees &amp; Taxes</a></li><li><a class="" href="06-keeping-records.html">Keeping Records</a></li><li><a class="" href="07-scam-proofing.html">Scam-Proofing</a></li><li><a class="" href="08-quitting-politely.html">Quitting Politely</a></li><li><span class="nav-label">Reference</span></li><li><a class="" href="starter-checklist.html">Starter Checklist</a></li><li><a class="" href="fee-think-worksheet.html">Fee-Think Worksheet</a></li><li><a class="" href="glossary.html">Glossary</a></li></ul>
+  </nav>
+  <main id="content">
+    <article>
+<h1 id="shipping-without-stress">Shipping Without Stress</h1>
+<p>Nothing about reselling stays fun once shipping becomes a daily emergency. The fix isn't willpower — it's three boring supplies, one honest scale, and a drop-off routine you never have to renegotiate. (This chapter is about <em>judgment</em>: when, what, how, and how to stay calm. When you want a computer to compare exact carrier rates for a given weight and box, that's what the companion <strong>Shipping-Cost Comparer</strong> CLI tool is for.)</p>
+<h2 id="the-shipping-station-one-tray-ten-dollars">The shipping station: one tray, ten dollars</h2>
+<p>Pick one place — a corner of a table, a shelf, one drawer — that holds only:</p>
+<ol>
+<li><strong>A kitchen scale that reads in grams and pounds-ounces.</strong> The single most stress-killing purchase in this whole book, usually $10–15. Weigh your item <em>with its packaging</em>, in the box or envelope you'll mail it in, packed.</li>
+<li><strong>Tape</strong> — real packing tape, not decorative. One big roll lasts months.</li>
+<li><strong>Boxes in three sizes and padded envelopes in two sizes.</strong> Build the bank for free: flatten boxes from your own shopping, grab the odd clean box from a store's take-one stack, and save padded envelopes that arrive at your door in good shape. Never reuse a box that still shows a barcode label from a different carrier — peel or black it out first.</li>
+</ol>
+<p>Optional but beautiful: a <strong>puppy pad or small towel</strong> under the station, so a dented can of beans rolling away is a laugh, not a mess. When the station is tidy, shipping is a chore; when it's chaotic, shipping is a drama. Choose chore.</p>
+<h2 id="the-one-rule-of-shipping-weight">The one rule of shipping weight</h2>
+<p><strong>The scale decides, not the guess.</strong> Carriers price by weight and dimensions, and rounding up one size class can double your label price. Weigh <em>everything packed</em>: item, box, filler, tape, the little thank-you note if you include one. Write the packed weight on a scrap or in a note. This number — not a memory of "eh, felt like a pound" — is what you use when you buy the label, and at drop-off the counter never corrects you.</p>
+<blockquote><p>Shipping-station math that pays for itself: a $12 scale that saves you $2 per misjudged guess pays for itself after your sixth package. Few purchases in this whole book have better math.</p></blockquote>
+<h2 id="wrapper-wisdom-short-version">Wrapper wisdom (short version)</h2>
+<ul>
+<li><strong>Padded envelopes</strong> are for anything soft, light, or flat: books, video games, folded jeans, small boxed items without corners to dent. They're the cheapest protection-per-dollar you can source.</li>
+<li><strong>Small product boxes from your own shopping</strong> (with the label-covered sides taped over) are free, and free is a price that can't be improved.</li>
+<li><strong>Bubble wrap and paper filler</strong> for anything rigid or valuable. Not required for a video game in a sleeve; required for anything fragile over the "I wouldn't cry over it" line.</li>
+<li>**No liquids, no batteries, nothing against hazmat rules until you've read those rules** — books and jeans first forever.</li>
+</ul>
+<h2 id="buying-the-label-where-the-calm-lives">Buying the label: where the calm lives</h2>
+<ol>
+<li>Buy the label <strong>through the marketplace</strong> (eBay and Amazon both offer discounted label rates when you buy in-app). It's usually far cheaper than the counter, it auto-fills the buyer's address — a typo firewall is worth more than any loyalty program — and it uploads tracking automatically, which keeps you protected when <a href="07-scam-proofing.html">scam-proofing</a> questions come up.</li>
+<li>Let the label tool choose the service class. When you buy a label in-app, it suggests a service based on the packed weight you entered and the box dimensions. Don't memorize service names on day one; read the suggested options in plain order, and pick the cheapest one that isn't a multi-week trip. If your listing charged the <em>buyer</em> for shipping, your test is one line long: the label price must not be more than what the buyer paid — and that comparison belongs to the <a href="fee-think-worksheet.html">fee-think worksheet</a>, which keeps one row for exactly that.</li>
+<li>Tape the label flat, all four edges, on the biggest flat side. If using paper, don't let tape cover <em>the barcode</em> itself.</li>
+</ol>
+<p><strong>Insurance</strong> is built into many in-app label services up to a threshold (about $100 of coverage on eBay's standard labels, as a plainly rounded figure). One rule of thumb for a part-timer: <strong>automatic coverage handles most everyday items.</strong> For anything you'd be sad to lose, the box-packing discipline from this chapter matters way more than the insurance upgrade. Careful packing prevents the claim you never need to file.</p>
+<h2 id="the-drop-off-routine">The drop-off routine</h2>
+<ul>
+<li>One <strong>drop-off day per week</strong> (many sellers pick the same day their sourcing trip falls, or the day after). Batch errands, save gas, save brain.</li>
+<li>Know your two nearest drop-off points: the post office lobby (usually the 24-hour self-serve wall) and one UPS-type store. Two points is enough.</li>
+<li>Sunday-evening or drop-off-morning ritual: every sold-and-shipped-by tomorrow item is wrapped, taped, labeled, stacked, and photographed before the label scan. Yes — **photograph heavy fragile boxes next to the scale** showing the weight and any addresses before you let go of them. It takes ten seconds and it's the evidence when things go missing (proof-of-shipment discipline overlaps heavily with the <a href="07-scam-proofing.html">scam-proofing checklist</a>).</li>
+</ul>
+<h2 id="the-truth-about-it-got-there-broken">The truth about "it got there broken"</h2>
+<p>It happens to everyone eventually. What keeps it rare:</p>
+<ul>
+<li><strong>Fill the space.</strong> A pressed-lid box that goes <em>thunk</em> when shaken is the enemy. If it moves, wrap it more.</li>
+<li><strong>Corners and screens</strong> are where damage reports come home. Extra wrap there, always.</li>
+<li>If the buyer reports damage: refund fast and apologize, don't investigate like an insurance adjuster. What we're protecting — reviews, sanity, <em>part-time pace</em> — is worth far more than one item's value. Save the photos and weight-note for the eventual carrier claim, not for arguing.</li>
+</ul>
+<h2 id="shipping-in-six-sentences-the-chapter-shortened">Shipping, in six sentences (the chapter, shortened)</h2>
+<ol>
+<li>Weigh everything packed, on a real scale, before you buy a label.</li>
+<li>Pick the box to fit the item, not your aspirations.</li>
+<li>Buy the discounted label in-app and let it handle the details.</li>
+<li>Tape flat over the edges, keep the barcode showing.</li>
+<li>Drop off on your standing day, after the ten-second pack photo.</li>
+<li>Fill empty box space, then fill it again.</li>
+</ol>
+<p>When that rhythm runs without thinking, on a part-time clock, ask the <a href="08-quitting-politely.html">five-question fun check</a> later — and in the meantime, go be proud of the box drawer.</p>
+    </article>
+    <nav class="pager" aria-label="Previous and next chapter">
+      <a class="prev" href="03-photos-and-listings.html"><span class="dir">Previous</span>Photos &amp; Listings</a>
+      <a class="next" href="05-fees-and-taxes.html"><span class="dir">Next</span>Fees &amp; Taxes</a>
+    </nav>
+  </main>
+</div>
+<footer class="page-footer">
+  The Side-Hustle Reseller Handbook · published by Asdale Dynamics, LLC ·
+  MIT licensed · <a href="https://dylanasdale.github.io">dylanasdale.github.io</a>
+</footer>
+</body>
+</html>
